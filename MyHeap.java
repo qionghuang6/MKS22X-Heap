@@ -4,7 +4,11 @@ public class MyHeap{
       int childIndex2 = 2 * index + 2;
       if(childIndex2 < size){
         if(data[childIndex2] > data[index] && data[childIndex2] > data[childIndex1]){
-
+          swap(data,index,childIndex2);
+          pushDown(data,size,childIndex2);
+        } else if(data[childIndex1] > data[index] && data[childIndex1] > data[childIndex2]){
+          swap(data,index,childIndex1);
+          pushDown(data,size,childIndex2);
         }
       }
     }
