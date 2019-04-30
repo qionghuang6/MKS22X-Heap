@@ -12,6 +12,10 @@ public class MyHeap{
           pushDown(data,size,childIndex1);
         }
       }
+      else if(childIndex1 < size && data[childIndex1] >= data[index]){
+        swap(data,index,childIndex1);
+        pushDown(data,size,childIndex1);
+      }
     }
     private static void swap(int[] data, int index1, int index2){
       int temp = data[index1];
@@ -39,8 +43,14 @@ public class MyHeap{
       }
     }
     public static void main(String[] args) {
-      int[] data = {};
-      heapsort(data);
-      System.out.println(Arrays.toString(data));
+      int[] data = new int[2];
+      for (int x = 0;x < 2 ;x++ ) {
+        data[x] = (int)(Math.random() * 100);
+      }
+      System.out.println(HeapHelp.toString(data));
+      heapify(data);
+      System.out.println(HeapHelp.toString(data));
+
+      //System.out.println(Arrays.toString(data));
     }
 }
