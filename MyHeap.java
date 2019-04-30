@@ -7,7 +7,7 @@ public class MyHeap{
         if(data[childIndex2] > data[index] && data[childIndex2] > data[childIndex1]){
           swap(data,index,childIndex2);
           pushDown(data,size,childIndex2);
-        } else if(data[childIndex1] > data[index] && data[childIndex1] > data[childIndex2]){
+        } else if(data[childIndex1] > data[index] && data[childIndex1] >= data[childIndex2]){
           swap(data,index,childIndex1);
           pushDown(data,size,childIndex1);
         }
@@ -33,13 +33,14 @@ public class MyHeap{
     public static void heapsort(int[] data){
       heapify(data);
       for(int x = data.length - 1; x > 0; x--){
+        //System.out.println(Arrays.toString(data));
         swap(data,0,x);
         pushDown(data,x,0);
       }
     }
     public static void main(String[] args) {
-      int[] data = {2,4,6,1,2,9,4,3,0,1,8,2,5};
-      heapify(data);
+      int[] data = {};
+      heapsort(data);
       System.out.println(Arrays.toString(data));
     }
 }
